@@ -49,6 +49,8 @@ class Catalog {
 }
 
 class Volume {
+  // 序号
+  late int volumePage;
   // 卷名
   late String volumeName;
 

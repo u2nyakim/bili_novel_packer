@@ -5,6 +5,8 @@ abstract class PackCallback {
   void beforePackVolume(Volume volume);
 
   void afterPackVolume(Volume volume);
+
+  bool end();
 }
 
 class ConsolePackCallback implements PackCallback {
@@ -22,5 +24,10 @@ class ConsolePackCallback implements PackCallback {
     loadingBar.stop();
     Console.write("\n");
     loadingBar = LoadingBar();
+  }
+
+  @override
+  bool end() {
+    return false;
   }
 }

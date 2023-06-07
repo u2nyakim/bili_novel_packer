@@ -54,7 +54,9 @@ class NovelPacker {
       for (var volume in arg.packVolumes) {
         await _packVolume(volume, arg.addChapterTitle, callback);
       }
-      exit(0);
+      if(callback!.end() == false){
+        exit(0);
+      }
     }
   }
 
