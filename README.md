@@ -1,6 +1,9 @@
-# 哔哩轻小说打包器
+# 哔哩轻小说打包器 HttpApi版
 
-[Gitee](https://gitee.com/Montaro2017/bili_novel_packer) | [Github](https://github.com/Montaro2017/bili_novel_packer)
+[Github](https://github.com/u2nyakim/bili_novel_packer)
+
+# 哔哩轻小说打包器 原版
+[Github](https://gitee.com/Montaro2017/bili_novel_packer)
 
 ## 介绍
 
@@ -12,14 +15,21 @@
 
 ## 下载
 
-[点此下载](https://gitee.com/Montaro2017/bili_novel_packer/releases)
+[点此下载](https://github.com/u2nyakim/bili_novel_packer/releases)
 
-## 使用
+## HttpApi版本使用
+
+```
+bili_novel_packer.exe -h 53002 -token pass123456
+```
+
+## 原版使用
 双击exe或者使用命令提示符都可。
 
 ![01](./images/img.png)
 
 ![02](./images/img_1.png)
+
 
 ## 编译
 
