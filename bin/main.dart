@@ -153,10 +153,10 @@ class RunConsolePackCallback extends ConsolePackCallback {
       for (int i = 0; i < volume.chapters.length; i++) {
         var item = {
           "name": volume.chapters[i].chapterName,
-          "url": volume.chapters[1].chapterUrl
+          "url": volume.chapters[i].chapterUrl
         };
         if (cuContent.contains('b')) {
-          item['content'] = volume.chapters[1].chapterContent;
+          item['content'] = volume.chapters[i].chapterContent;
         }
         chapters.add(item);
       }
@@ -164,7 +164,7 @@ class RunConsolePackCallback extends ConsolePackCallback {
         "volumeName": volume.volumeName,
         "volumePage": volume.volumePage,
         "milliseconds": stopwatch.elapsedMilliseconds,
-        "chapters": volume.chapters
+        "chapters": chapters
       });
     }
   }
@@ -199,7 +199,12 @@ Future<Object> startRun(String srcUrl, String selectVolumeRange,
     bool chapterTitle, String callbackUrl, String callbackContent) async {
   var packer = NovelPacker.fromUrl(srcUrl);
   var novel = await packer.getNovel();
-  Console.write("[${novel.id}]# 名称: ${novel.title}, 作者: ${novel.author}, 状态: ${novel.status}, 采集地址: $srcUrl, 采集范围: $selectVolumeRange, 回调配置: $callbackContent  \r\n");
+  var selectVolumeRangeShow = selectVolumeRange;
+  if (selectVolumeRangeShow == ""){
+    selectVolumeRangeShow = "全部";
+    selectVolumeRange = "0";
+  }
+  Console.write("[${novel.id}]# 名称: ${novel.title}, 作者: ${novel.author}, 状态: ${novel.status}, 采集地址: $srcUrl, 采集范围: $selectVolumeRangeShow, 回调配置: $callbackContent  \r\n");
   Catalog catalog = await packer.getCatalog();
   var volumes = [];
   for (int i = 0; i < catalog.volumes.length; i++) {
